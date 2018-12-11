@@ -39,14 +39,16 @@ function gameOver(){
     function openWindow() { 
         if(gameCounter<13){
         console.log("You were eaten at " + time); 
-        opn( 'http://localhost:3000', function (err) {
+        opn( 'http://localhost:3000/lose', function (err) {
             if ( err ) throw err;
           });
         }
         else{
             console.log("############### YOU WIN ###############");
-            console.log("You killed Shia at " + time);    
-
+            console.log("You killed Shia at " + time);
+            opn( 'http://localhost:3000/win', function (err) {
+            if ( err ) throw err;
+          });   
         }
         }
     myFunction()
@@ -97,7 +99,7 @@ function thirdRound() {
         inquirer.prompt([{
             type: "list",
             message: "WHAT DO YOU DO?! \n",
-            choices: ["Fight", "Run \n"],
+            choices: ["Fight", "Run"],
             name: "userGuess",
         }]).then(function(answers) {
             if(answers.userGuess==="Fight"){
