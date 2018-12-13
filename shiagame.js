@@ -23,6 +23,10 @@ function getName(){
             firstRound();
         }
     );
+    opn( 'http://localhost:3000/home', function (err) {
+            if ( err ) throw err;
+          });
+        
  }
  
 
@@ -99,7 +103,7 @@ function thirdRound() {
         inquirer.prompt([{
             type: "list",
             message: "WHAT DO YOU DO?! \n",
-            choices: ["Fight", "Run"],
+            choices: ["Fight", "Run \n"],
             name: "userGuess",
         }]).then(function(answers) {
             if(answers.userGuess==="Fight"){
@@ -159,7 +163,7 @@ function fifthRound(){
         choices: ["Head Towards The Cottage?", "Head Back To The Car? \n"],
         name: "userGuess",
     }]).then(function(answers) {
-        if(answers.userGuess==="Head Back To The Car?"){
+        if(answers.userGuess==="Head Back To The Car? \n"){
             function myFunction2(){
             console.log("You turned around and saw Shia and he ate you!".red);
             gameOver();

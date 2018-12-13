@@ -11,5 +11,4 @@ module.exports = function(app){
   app.get('/win', function (req, res) {
     res.sendFile(path.join(__dirname + '/../public/win.html'));
   });
-  
 };
